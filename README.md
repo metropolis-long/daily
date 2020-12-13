@@ -2,4 +2,4 @@
 每天
 
 #基本框架
-springboot mybatis mysql
+第一版 springboot mybatis mysql redis
