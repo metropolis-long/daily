@@ -1,0 +1,1320 @@
+{
+	"info": {
+		"_postman_id": "427aef8a-63f0-4e97-85c5-facfa8ee2c84",
+		"name": "daily",
+		"description": "请求返回的code和msg   \r\n    OK(200,\"成功\",1),\r\n    REG_ERR(300,\"注册失败\",1),\r\n    NO_USER(501,\"用户不存在\",1),\r\n    LOGIN_PWD_ERR(301,\"密码错误\",1),\r\n    PARAM_IS_BLANK(400,\"参数为空\",1),\r\n    NO_LOGIN(100,\"未登录\",1)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "注册",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/user/reg?email=zhuye21711@qq.com&pwd=222&code=YHOBXH",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"user",
+						"reg"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "zhuye21711@qq.com",
+							"description": "邮箱"
+						},
+						{
+							"key": "pwd",
+							"value": "222",
+							"description": "密码"
+						},
+						{
+							"key": "code",
+							"value": "YHOBXH",
+							"description": "验证码"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "注册验证码获取，直接发送到邮箱，用户自行填写",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/user/reg/get/code?email=2219431784@qq.com",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"user",
+						"reg",
+						"get",
+						"code"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "2219431784@qq.com",
+							"description": "邮箱"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "登录",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/user/login",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"user",
+						"login"
+					],
+					"query": [
+						{
+							"key": "loginName",
+							"value": ""
+						},
+						{
+							"key": "pwd",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "退出登录",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/user/logout",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"user",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "用户信息",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/user/info",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"user",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "上传文件",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/D:/Download/FSCapture_8.7_Chs_Final.exe"
+						},
+						{
+							"key": "userId",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/file/image",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"file",
+						"image"
+					],
+					"query": [
+						{
+							"key": "fileId",
+							"value": "8",
+							"description": "文件主键，有则修改无则新增",
+							"disabled": true
+						},
+						{
+							"key": "userId",
+							"value": "1",
+							"description": "用户主键",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "用户信息修改",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/user/save?userId=1",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"user",
+						"save"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1",
+							"description": "用户主键"
+						},
+						{
+							"key": "phone",
+							"value": "1358794655121",
+							"description": "手机号",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "2@2.com",
+							"description": "邮箱",
+							"disabled": true
+						},
+						{
+							"key": "avatar",
+							"value": "static.zhuyelong.cn/222.png",
+							"description": "用户头像，上传文件后取得路径再次这个属性",
+							"disabled": true
+						},
+						{
+							"key": "nickName",
+							"value": "用户昵称",
+							"description": "用户昵称",
+							"disabled": true
+						},
+						{
+							"key": "pwd",
+							"value": "123456",
+							"description": "密码",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "日记列表",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/diary/list?keywords=&page.pageNo=1&page.length=20&orderCause=2&userId=19",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"diary",
+						"list"
+					],
+					"query": [
+						{
+							"key": "keywords",
+							"value": "",
+							"description": "模糊 搜索"
+						},
+						{
+							"key": "page.pageNo",
+							"value": "1",
+							"description": "页数"
+						},
+						{
+							"key": "page.length",
+							"value": "20",
+							"description": "每页条数"
+						},
+						{
+							"key": "orderCause",
+							"value": "2",
+							"description": "时间排序，1正序2倒序"
+						},
+						{
+							"key": "userId",
+							"value": "19"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "日记保存修改",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/diary/save?mood=开心,高兴晚安&weather=晴&temperature=1.2&diaryId=25&statusId=0&userId=19&diaryContext=斯蒂芬规划局睡觉&weatherType=1&moodType=2&diaryHtml=<p>斯蒂芬规划局睡觉</p>",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"diary",
+						"save"
+					],
+					"query": [
+						{
+							"key": "dialyDate",
+							"value": "2020/10/21 00:55:55",
+							"description": "日记时间，不选择就算默认当天",
+							"disabled": true
+						},
+						{
+							"key": "mood",
+							"value": "开心,高兴晚安",
+							"description": "心情"
+						},
+						{
+							"key": "weather",
+							"value": "晴",
+							"description": "天气"
+						},
+						{
+							"key": "temperature",
+							"value": "1.2",
+							"description": "气温"
+						},
+						{
+							"key": "diaryId",
+							"value": "25",
+							"description": "主键，没有值的时候是新增，否则是修改"
+						},
+						{
+							"key": "statusId",
+							"value": "0",
+							"description": "日记状态，0是私有，1是公开，9是删除"
+						},
+						{
+							"key": "userId",
+							"value": "19",
+							"description": "用户主键，防止登录状态，修改他人数据"
+						},
+						{
+							"key": "diaryContext",
+							"value": "斯蒂芬规划局睡觉",
+							"description": "日记文本"
+						},
+						{
+							"key": "weatherType",
+							"value": "1",
+							"description": "晴，阴，多云，雪，雨"
+						},
+						{
+							"key": "moodType",
+							"value": "2",
+							"description": "心情"
+						},
+						{
+							"key": "diaryHtml",
+							"value": "<p>斯蒂芬规划局睡觉</p>"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "日记详情",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/diary/detail?diaryId=1&userId=1",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"diary",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "diaryId",
+							"value": "1"
+						},
+						{
+							"key": "userId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "消费列表",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/cost/findMyCost?keywords=&page.pageNo=1&page.length=20&orderCause=1",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"cost",
+						"findMyCost"
+					],
+					"query": [
+						{
+							"key": "keywords",
+							"value": "",
+							"description": "模糊搜索"
+						},
+						{
+							"key": "page.pageNo",
+							"value": "1"
+						},
+						{
+							"key": "page.length",
+							"value": "20"
+						},
+						{
+							"key": "orderCause",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "消费列表",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://daily.zhuyelong.cn/cost/findMyCost?keywords=拇指琴&page.pageNo=1&page.length=20&orderCause=1",
+							"protocol": "http",
+							"host": [
+								"daily",
+								"zhuyelong",
+								"cn"
+							],
+							"path": [
+								"cost",
+								"findMyCost"
+							],
+							"query": [
+								{
+									"key": "keywords",
+									"value": "拇指琴"
+								},
+								{
+									"key": "page.pageNo",
+									"value": "1"
+								},
+								{
+									"key": "page.length",
+									"value": "20"
+								},
+								{
+									"key": "orderCause",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.12.2"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 20 Oct 2020 15:27:49 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"msg\": null,\n    \"data\": [\n        {\n            \"costId\": 1,\n            \"userId\": 1,\n            \"costContext\": \"拇指琴\",\n            \"costMoney\": 199.88,\n            \"tag\": \"乐趣\",\n            \"created\": 1602408123000,\n            \"updated\": 1602429922000,\n            \"timeStr\": \"合计\",\n            \"sumMoney\": null,\n            \"labels\": null,\n            \"label\": [\n                {\n                    \"labelId\": 4,\n                    \"labelContext\": \"很干\",\n                    \"labelType\": null,\n                    \"relationId\": 1,\n                    \"relationTable\": null,\n                    \"userId\": null,\n                    \"created\": null\n                },\n                {\n                    \"labelId\": 5,\n                    \"labelContext\": \"威威我22\",\n                    \"labelType\": null,\n                    \"relationId\": 1,\n                    \"relationTable\": null,\n                    \"userId\": null,\n                    \"created\": null\n                }\n            ]\n        }\n    ],\n    \"adds\": {\n        \"count\": 1\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "消费统计",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/cost/sumClassify4Cost?timeType=1",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"cost",
+						"sumClassify4Cost"
+					],
+					"query": [
+						{
+							"key": "timeType",
+							"value": "1",
+							"description": "统计期限，3按周统计，2按月统计，1按年统计"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "消费记录保存",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/cost/save?costContext=饮水机&costMoney=110&tag=生活，日常&userId=1",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"cost",
+						"save"
+					],
+					"query": [
+						{
+							"key": "costId",
+							"value": null,
+							"description": "消费主键，没有值则新增记录，否则修改",
+							"disabled": true
+						},
+						{
+							"key": "costContext",
+							"value": "饮水机",
+							"description": "消费内容"
+						},
+						{
+							"key": "costMoney",
+							"value": "110",
+							"description": "消费金额"
+						},
+						{
+							"key": "tag",
+							"value": "生活，日常",
+							"description": "标签"
+						},
+						{
+							"key": "userId",
+							"value": "1",
+							"description": "用户主键，防止登录状态，修改他人数据"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "事件列表",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/event/eventList?page.pageNo=1&page.length=20&orderCause=1",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"event",
+						"eventList"
+					],
+					"query": [
+						{
+							"key": "keywords",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "page.pageNo",
+							"value": "1"
+						},
+						{
+							"key": "page.length",
+							"value": "20"
+						},
+						{
+							"key": "orderCause",
+							"value": "1"
+						},
+						{
+							"key": "planTime",
+							"value": "2020-10-01",
+							"description": "事件时间月份第一天",
+							"disabled": true
+						},
+						{
+							"key": "timeCost",
+							"value": null,
+							"description": "事件用时大于该分钟数的",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "消费列表",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://daily.zhuyelong.cn/cost/findMyCost?keywords=拇指琴&page.pageNo=1&page.length=20&orderCause=1",
+							"protocol": "http",
+							"host": [
+								"daily",
+								"zhuyelong",
+								"cn"
+							],
+							"path": [
+								"cost",
+								"findMyCost"
+							],
+							"query": [
+								{
+									"key": "keywords",
+									"value": "拇指琴"
+								},
+								{
+									"key": "page.pageNo",
+									"value": "1"
+								},
+								{
+									"key": "page.length",
+									"value": "20"
+								},
+								{
+									"key": "orderCause",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.12.2"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 20 Oct 2020 15:27:49 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"msg\": null,\n    \"data\": [\n        {\n            \"costId\": 1,\n            \"userId\": 1,\n            \"costContext\": \"拇指琴\",\n            \"costMoney\": 199.88,\n            \"tag\": \"乐趣\",\n            \"created\": 1602408123000,\n            \"updated\": 1602429922000,\n            \"timeStr\": \"合计\",\n            \"sumMoney\": null,\n            \"labels\": null,\n            \"label\": [\n                {\n                    \"labelId\": 4,\n                    \"labelContext\": \"很干\",\n                    \"labelType\": null,\n                    \"relationId\": 1,\n                    \"relationTable\": null,\n                    \"userId\": null,\n                    \"created\": null\n                },\n                {\n                    \"labelId\": 5,\n                    \"labelContext\": \"威威我22\",\n                    \"labelType\": null,\n                    \"relationId\": 1,\n                    \"relationTable\": null,\n                    \"userId\": null,\n                    \"created\": null\n                }\n            ]\n        }\n    ],\n    \"adds\": {\n        \"count\": 1\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "事件保存 ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/event/save?eventContext=下个月回家&timeCost=110.22&userId=19&remind=1&remindTime=2021/01/01 06:10:00",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"event",
+						"save"
+					],
+					"query": [
+						{
+							"key": "eventContext",
+							"value": "下个月回家",
+							"description": "事件内容"
+						},
+						{
+							"key": "timeCost",
+							"value": "110.22",
+							"description": "消耗时间，两位小数，分钟"
+						},
+						{
+							"key": "userId",
+							"value": "19",
+							"description": "用户主键，防止登录状态，修改他人数据"
+						},
+						{
+							"key": "eventId",
+							"value": "2",
+							"description": "事件主键",
+							"disabled": true
+						},
+						{
+							"key": "planTime",
+							"value": "2021/01/01 00:00:00",
+							"description": "计划时间",
+							"disabled": true
+						},
+						{
+							"key": "remind",
+							"value": "1",
+							"description": "是否需要提醒"
+						},
+						{
+							"key": "remindTime",
+							"value": "2021/01/01 06:10:00",
+							"description": "提醒时间"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "标签保存",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/label/save?labelContext=观后感&relationId=1&relationTable=1&labelType=1&userId=1",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"label",
+						"save"
+					],
+					"query": [
+						{
+							"key": "labelId",
+							"value": "1",
+							"description": "主键，没有值为新增标签。否则是修改",
+							"disabled": true
+						},
+						{
+							"key": "labelContext",
+							"value": "观后感",
+							"description": "标签内容"
+						},
+						{
+							"key": "relationId",
+							"value": "1",
+							"description": "所在关联记录的主键"
+						},
+						{
+							"key": "relationTable",
+							"value": "1",
+							"description": "关系表，1日记表，2消费表，3学习表，4任务表"
+						},
+						{
+							"key": "labelType",
+							"value": "1",
+							"description": "标签类型,1心情 ，2消费，3学习"
+						},
+						{
+							"key": "userId",
+							"value": "1",
+							"description": "用户主键，防止登录状态，修改他人数据"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "标签删除",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/label/delete?labelId=1",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"label",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "labelId",
+							"value": "1",
+							"description": "主键"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "学习列表",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/learn/findLearn?page.pageNo=1&page.length=5&orderCause=2",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"learn",
+						"findLearn"
+					],
+					"query": [
+						{
+							"key": "keywords",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "page.pageNo",
+							"value": "1"
+						},
+						{
+							"key": "page.length",
+							"value": "5"
+						},
+						{
+							"key": "orderCause",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "学习计划保存",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/learn/save?learnTitle=tensorflow.js项目部署222&tag=人工智能，高端前端，tensorflow&learnContext=学习内容文本&learnHtml=究其原因就是这个字保存需要占4 Bytes的字节，mysql在MySQL 5.6+版本之后支持4Bytes字节（utf8mb4）的存储，首先先看一下mysql编码如何设置？\n\n数据库字符集设置\n建库语句中需要指定字符集编码为：utf8mb4\n\n建库语句中需要指定字符集校对规则为：utf8mb4_general_ci\n\n建表语句中需要指定字符集编码为：utf8mb4\n\n表字段需要指定字符集编码为：utf8mb4\n\n表字段collation需要指定字符集校验规则：utf8mb4_general_ci\n\n如下图：\n\n\n\n\n\nCREATE TABLE `t_application` (\n  `ID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',\n  `APP_ID` bigint(20) NOT NULL COMMENT '应用编号',\n  `NAME` varchar(100) NOT NULL COMMENT '应用名称',\n  `DESCRIPTION` varchar(200) DEFAULT NULL COMMENT '应用描述',\n  PRIMARY KEY (`ID`)\n) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC\nutf8mb4不生效问题分析\n完成上面的字符集设置之后我们使用程序保存字符来进行测试，还是提示非法的字符集错误，那这又是为什么呢？\n\n让我们来看回数据库charset设置，SHOW VARIABLES LIKE 'CHARACTER%'，关注character_set_server这个字符设置\n\n\n\ncharacter_set_server在默认情况下为latin1\n\n/*\ncharacter_set_server: 服务器安装时指定的默认字符集设定。\ncharacter_set_database: 数据库服务器中某个库使用的字符集设定，如果建库时没有指明，将使用服务器安装时指定的字符集设置。\n \n建表时候，字段字符集的选取方式如下：\n\n1. * if 字段指定的字符集\n2. * else if 表指定的字符集\n3. * else if @@character_set_database\n4. * else @@character_set_server (如果没有设定，这个值为latin1)\n \n*/\n按照上面的说法，如果character_set_server和character_set_database变量的值不同，则新建数据库的字符集以character_set_server为准，而不是按照character_set_database。\n\n我的理解是character_set_database指定了utf8mb4后目标库应该按照设置的字符集格式走才对，只有没有设置的库才会走默认的，但是现在测试下来，character_set_server必须修改为utf8mb4,否则保存这种字符依然提示非法字符集，不太清楚具体什么原因。\n\n如果数据库按照上面设置了以后还是无法保存的话，应该就是mysql驱动的问题和数据库连接串字符集的问题。下面让我们看一下从mysql server到mysql驱动到数据源再到应用所有的utf8mb4设置。\n\n完整的正确设置\nMysql服务端配置\n建库语句中需要指定字符集编码为：utf8mb4\n\n建库语句中需要指定字符集校对规则为：utf8mb4_general_ci\n\n建表语句中需要指定字符集编码为：utf8mb4\n\n表字段需要指定字符集编码为：utf8mb4\n\n表字段collation需要指定字符集校验规则：utf8mb4_general_ci\n\nmysql ini配置文件指定character_set_server\n\n[client]\ndefault-character-set=utf8mb4\n[mysql]\ndefault-character-set=utf8mb4\n[mysqld]\ncharacter-set-server=utf8mb4\ncollation-server=utf8mb4_general_ci\nps. character_set_server设置成utf8或使用默认latin1，在直接使用sql插入特殊字符和emoji表情时数据库显示？？？？？乱码，使用程序（mybatis）插入特殊字符和emoji表情时报错：java.sql.SQLException: Incorrect string value: ‘\\xF0\\xA5\\x8A\\x8D’ for column ‘某某列’ at row 1\n\njava连接mysql驱动版本\nmysql-connector-java版本在5.1.13+才支持utf8mb4，因此在选用连接驱动时应注意这个问题，我们使用的驱动是mysql-connector-java-5.1.41。\n\n数据源配置\n我们使用的druid数据源配置上需要加上connectionInitSqls属性配置，具体如下：\n\n<bean id=\"dataSource\" class=\"com.alibaba.druid.pool.DruidDataSource\"\n       destroy-method=\"close\">\n   ....此处省略其他属性.....\n   <property name=\"connectionInitSqls\" value=\"set names utf8mb4;\" />\n</bean>\nps.但是我实际测试下来，这个参数不加也没有什么问题，可以正常保存这种特殊字符和emoji表情，官方建议配置。\n\n数据库连接串配置\n我们的配置如下：\n\njdbc.url=jdbc:mysql://ip:port/databaseName?useUnicode=true%26characterEncoding=UTF-8%26noAccessToProcedureBodies=true%26autoReconnect=true\n建议去掉useUnicode和characterEncoding的配置，使用如下配置：\n\njdbc.url=jdbc:mysql://ip:port/databaseName?noAccessToProcedureBodies=true%26autoReconnect=true\nps.但是我实际测试下来，连接串上增加useUnicode=true%26characterEncoding=utf8也没有什么问题，可以正常保存这种特殊字符和emoji表情。\n\n总结\n最主要的是mysql服务端的character_set_server需要和character_set_database保持一致修改为utf8mb4，因此我们先不考虑数据库连接串和druid数据源配置修改，但是mysql-connector-java版本必须使用5.1.13+&userId=19",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"learn",
+						"save"
+					],
+					"query": [
+						{
+							"key": "learnId",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "learnTitle",
+							"value": "tensorflow.js项目部署222",
+							"description": "学习标题"
+						},
+						{
+							"key": "tag",
+							"value": "人工智能，高端前端，tensorflow",
+							"description": "标签"
+						},
+						{
+							"key": "learnContext",
+							"value": "学习内容文本",
+							"description": "学习内容"
+						},
+						{
+							"key": "learnHtml",
+							"value": "究其原因就是这个字保存需要占4 Bytes的字节，mysql在MySQL 5.6+版本之后支持4Bytes字节（utf8mb4）的存储，首先先看一下mysql编码如何设置？\n\n数据库字符集设置\n建库语句中需要指定字符集编码为：utf8mb4\n\n建库语句中需要指定字符集校对规则为：utf8mb4_general_ci\n\n建表语句中需要指定字符集编码为：utf8mb4\n\n表字段需要指定字符集编码为：utf8mb4\n\n表字段collation需要指定字符集校验规则：utf8mb4_general_ci\n\n如下图：\n\n\n\n\n\nCREATE TABLE `t_application` (\n  `ID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',\n  `APP_ID` bigint(20) NOT NULL COMMENT '应用编号',\n  `NAME` varchar(100) NOT NULL COMMENT '应用名称',\n  `DESCRIPTION` varchar(200) DEFAULT NULL COMMENT '应用描述',\n  PRIMARY KEY (`ID`)\n) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC\nutf8mb4不生效问题分析\n完成上面的字符集设置之后我们使用程序保存字符来进行测试，还是提示非法的字符集错误，那这又是为什么呢？\n\n让我们来看回数据库charset设置，SHOW VARIABLES LIKE 'CHARACTER%'，关注character_set_server这个字符设置\n\n\n\ncharacter_set_server在默认情况下为latin1\n\n/*\ncharacter_set_server: 服务器安装时指定的默认字符集设定。\ncharacter_set_database: 数据库服务器中某个库使用的字符集设定，如果建库时没有指明，将使用服务器安装时指定的字符集设置。\n \n建表时候，字段字符集的选取方式如下：\n\n1. * if 字段指定的字符集\n2. * else if 表指定的字符集\n3. * else if @@character_set_database\n4. * else @@character_set_server (如果没有设定，这个值为latin1)\n \n*/\n按照上面的说法，如果character_set_server和character_set_database变量的值不同，则新建数据库的字符集以character_set_server为准，而不是按照character_set_database。\n\n我的理解是character_set_database指定了utf8mb4后目标库应该按照设置的字符集格式走才对，只有没有设置的库才会走默认的，但是现在测试下来，character_set_server必须修改为utf8mb4,否则保存这种字符依然提示非法字符集，不太清楚具体什么原因。\n\n如果数据库按照上面设置了以后还是无法保存的话，应该就是mysql驱动的问题和数据库连接串字符集的问题。下面让我们看一下从mysql server到mysql驱动到数据源再到应用所有的utf8mb4设置。\n\n完整的正确设置\nMysql服务端配置\n建库语句中需要指定字符集编码为：utf8mb4\n\n建库语句中需要指定字符集校对规则为：utf8mb4_general_ci\n\n建表语句中需要指定字符集编码为：utf8mb4\n\n表字段需要指定字符集编码为：utf8mb4\n\n表字段collation需要指定字符集校验规则：utf8mb4_general_ci\n\nmysql ini配置文件指定character_set_server\n\n[client]\ndefault-character-set=utf8mb4\n[mysql]\ndefault-character-set=utf8mb4\n[mysqld]\ncharacter-set-server=utf8mb4\ncollation-server=utf8mb4_general_ci\nps. character_set_server设置成utf8或使用默认latin1，在直接使用sql插入特殊字符和emoji表情时数据库显示？？？？？乱码，使用程序（mybatis）插入特殊字符和emoji表情时报错：java.sql.SQLException: Incorrect string value: ‘\\xF0\\xA5\\x8A\\x8D’ for column ‘某某列’ at row 1\n\njava连接mysql驱动版本\nmysql-connector-java版本在5.1.13+才支持utf8mb4，因此在选用连接驱动时应注意这个问题，我们使用的驱动是mysql-connector-java-5.1.41。\n\n数据源配置\n我们使用的druid数据源配置上需要加上connectionInitSqls属性配置，具体如下：\n\n<bean id=\"dataSource\" class=\"com.alibaba.druid.pool.DruidDataSource\"\n       destroy-method=\"close\">\n   ....此处省略其他属性.....\n   <property name=\"connectionInitSqls\" value=\"set names utf8mb4;\" />\n</bean>\nps.但是我实际测试下来，这个参数不加也没有什么问题，可以正常保存这种特殊字符和emoji表情，官方建议配置。\n\n数据库连接串配置\n我们的配置如下：\n\njdbc.url=jdbc:mysql://ip:port/databaseName?useUnicode=true%26characterEncoding=UTF-8%26noAccessToProcedureBodies=true%26autoReconnect=true\n建议去掉useUnicode和characterEncoding的配置，使用如下配置：\n\njdbc.url=jdbc:mysql://ip:port/databaseName?noAccessToProcedureBodies=true%26autoReconnect=true\nps.但是我实际测试下来，连接串上增加useUnicode=true%26characterEncoding=utf8也没有什么问题，可以正常保存这种特殊字符和emoji表情。\n\n总结\n最主要的是mysql服务端的character_set_server需要和character_set_database保持一致修改为utf8mb4，因此我们先不考虑数据库连接串和druid数据源配置修改，但是mysql-connector-java版本必须使用5.1.13+"
+						},
+						{
+							"key": "userId",
+							"value": "19"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "学习详情",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/learn/detail?learnId=5",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"learn",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "learnId",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取省份",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/select/province",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"select",
+						"province"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取城市",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/select/city",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"select",
+						"city"
+					],
+					"query": [
+						{
+							"key": "provinceCode",
+							"value": "110000",
+							"description": "省份主键，不给则返回全国城市",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "游记列表",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/travel/list?keywords=&page.pageNo=1&page.length=20",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"travel",
+						"list"
+					],
+					"query": [
+						{
+							"key": "keywords",
+							"value": ""
+						},
+						{
+							"key": "page.pageNo",
+							"value": "1"
+						},
+						{
+							"key": "page.length",
+							"value": "20"
+						},
+						{
+							"key": "orderCause",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "provinceCode",
+							"value": "110000",
+							"description": "省份",
+							"disabled": true
+						},
+						{
+							"key": "cityCode",
+							"value": "110000",
+							"description": "城市",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "游记保存",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/travel/save?travelTitle=北京一日游&travelNote=美&travelHtml=《美》&provinceCode=110000&cityCode=110540&longitude=444.21554&latitude=78545.34567&tag=开心&userId=19&travelImg=555",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"travel",
+						"save"
+					],
+					"query": [
+						{
+							"key": "travelId",
+							"value": "2",
+							"description": "游记主键",
+							"disabled": true
+						},
+						{
+							"key": "travelTitle",
+							"value": "北京一日游",
+							"description": "标题"
+						},
+						{
+							"key": "travelNote",
+							"value": "美",
+							"description": "游记"
+						},
+						{
+							"key": "travelHtml",
+							"value": "《美》",
+							"description": "游记html"
+						},
+						{
+							"key": "provinceCode",
+							"value": "110000",
+							"description": "省份"
+						},
+						{
+							"key": "cityCode",
+							"value": "110540",
+							"description": "城市"
+						},
+						{
+							"key": "longitude",
+							"value": "444.21554",
+							"description": "经度"
+						},
+						{
+							"key": "latitude",
+							"value": "78545.34567",
+							"description": "纬度"
+						},
+						{
+							"key": "tag",
+							"value": "开心",
+							"description": "标签"
+						},
+						{
+							"key": "userId",
+							"value": "19"
+						},
+						{
+							"key": "travelImg",
+							"value": "555",
+							"description": "游记首图上传图片 后的返回主键"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "游记详情",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/travel/detail?travelId=2&userId=1",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"travel",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "travelId",
+							"value": "2",
+							"description": "游记主键"
+						},
+						{
+							"key": "userId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "全站搜索",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/select/website?keywords=1",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"select",
+						"website"
+					],
+					"query": [
+						{
+							"key": "keywords",
+							"value": "1"
+						}
+					]
+				},
+				"description": "返回的relationTable的值代表各个功能\r\n1、日记\r\n2、消费\r\n3、学习\r\n4、游记"
+			},
+			"response": []
+		},
+		{
+			"name": "事件删除",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/event/delete?userId=19&eventId=2",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"event",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "19"
+						},
+						{
+							"key": "eventId",
+							"value": "2",
+							"description": "事件主键"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "事件提醒列表",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://daily.zhuyelong.cn/api/event/eventRemindList",
+					"protocol": "http",
+					"host": [
+						"daily",
+						"zhuyelong",
+						"cn"
+					],
+					"path": [
+						"api",
+						"event",
+						"eventRemindList"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "35c73c2c-724d-49e6-aa49-5d9a8fdb0bd8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "aacd130a-2692-4377-879e-9c88c9b7ff75",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
