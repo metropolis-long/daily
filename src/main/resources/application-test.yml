@@ -1,0 +1,103 @@
+server:
+  port: 8080
+  session:
+    timeout: 300
+logging:
+  level:
+    tk.mybatis: TRACE
+jasypt:
+  encryptor:
+    password: EbfYkitulv73I2p0mXI50JMXoaxZTKJ7
+application:
+  version: 1.0.0
+  #upload file path
+  profile: /data/profile/
+
+  domain: http://static.zhuyelong.cn
+spring:
+  profiles: test
+  session:
+    store-type: redis
+    redis:
+      flush-mode: on_save
+      namespace: spring:session
+  redis:
+    host: ENC(dIH/Ed4Cj5yeR9CGWisaktt8OX0x83XD)
+    password: ENC(lPMwHr2e56l7bxGv9tGpyw==)
+    port: 6379
+  datasource: # 数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    name: ENC(lPMwHr2e56l7bxGv9tGpyw==)
+    url:  ENC(FiiogfhP+eryN3ImGlrfwFhTjHLWBGzIsOPTX1k+14T/G8pLq2bdY1E4n3teD7G8NI6mG70zTUOVTjmM68RcSAqhAZ3gZbIV3ZEF6mXxAziGn1KgUzfLgyCMr++mlmoB)
+    username: ENC(/n7FAQgxd7Rfc4ZnJWDI1Q==)
+    password: ENC(HvlUIFn4vXcyyHnkjm/YUJrDHHmBuGJX)
+    druid:
+      # 初始连接数
+      initialSize: 5
+      # 最小连接池数量
+      minIdle: 10
+      # 最大连接池数量
+      maxActive: 20
+      # 配置获取连接等待超时的时间
+      maxWait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      timeBetweenEvictionRunsMillis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 300000
+      # 配置一个连接在池中最大生存的时间，单位是毫秒
+      maxEvictableIdleTimeMillis: 900000
+      # 配置检测连接是否有效
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      webStatFilter:
+        enabled: true
+      statViewServlet:
+        enabled: true
+        # 设置白名单，不填则允许所有访问
+        url-pattern: /druid/*
+        # 控制台管理用户名和密码
+      #        在代码里
+      #        login-username: 1
+      #        login-password: 1
+      filter:
+        stat:
+          allow:
+          enabled: true
+          # 慢SQL记录
+          log-slow-sql: true
+          slow-sql-millis: 1000
+          merge-sql: true
+        wall:
+          config:
+            multi-statement-allow: true
+  mail:
+    host: ENC(4F3l8/Jt56+6twVSusqBFnjEf3RvoTWb)
+    port: 25
+    default-encoding: utf-8
+    username: ENC(gkqEgeTiScsCX7WuqgxBehsQplgpUGZg)
+    password: ENC(vl/fa7Ykv8LoO5+5LRftpfEFd67blhKLpt2MpaFA1Dc=)
+  http:
+    multipart:
+      max-file-size: 10Mb
+      max-request-size: 10Mb
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.daily.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+path:
+  include:
+    - /api/**
+  exclude:
+    - /api/user/login
+    - /api/user/reg
+    - /api/user/reg/get/code
+    - /api/user/info
+    - /api/select/**
+    - /api/file/**
+    - /index.html
+    - /

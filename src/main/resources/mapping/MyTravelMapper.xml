@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.daily.dao.my.TravelNoteDao" >
+  <select id="findTravel" parameterType="com.daily.search.LearnSearch"  resultType="com.daily.dto.TravelDTO">
+    select * from travel_note as d
+    left join label on label.relation_id = d.travel_id and label.relation_table=4
+    left join cities_county c on c.city_code = d.city_code
+    left join cities_province p on p.province_code = d.province_code
+    left join daily_files f on f.file_id = d.travel_img
+    <include refid="learn_sql"/>
+    <if test="orderCause != null ">
+      order by ${orderCause}
+    </if>
+    <if test="page != null">
+      limit #{page.begin},#{page.length}
+    </if>
+  </select>
+  <select id="count4FindTravel" parameterType="com.daily.search.LearnSearch" resultType="int">
+    select count(*) from (
+    select * from travel_note as d
+    <include refid="learn_sql"/>
+    )t
+  </select>
+  <sql id="learn_sql">
+    <where>
+      <if test="userId != null">
+        and  d.user_id=#{userId}
+      </if>
+      <if test="statusId != null">
+        and  d.status_id=#{statusId}
+      </if>
+      <if test="provinceCode != null">
+        and  d.province_code=#{provinceCode}
+      </if>
+      <if test="cityCode != null">
+        and  d.city_code=#{cityCode}
+      </if>
+
+      <if test="travelId">
+        and  d.travel_id=#{travelId}
+      </if>
+      <if test="keywords != null ">
+        and  (d.travel_note like #{keywordsLike}
+        or d.travel_title like #{keywordsLike}
+        or d.tag like #{keywordsLike}
+        )
+      </if>
+    </where>
+  </sql>
+</mapper>

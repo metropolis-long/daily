@@ -1,0 +1,30 @@
+server:
+  port: 8080
+  session:
+    timeout: 300
+logging:
+  level:
+    tk.mybatis: TRACE
+jasypt:
+  encryptor:
+    password: EbfYkitulv73I2p0mXI50JMXoaxZTKJ7
+spring:
+  profiles:
+    active: dev
+#mybatis:
+#  mapper-locations: classpath:mapping/*Mapper.xml
+#  type-aliases-package: com.daily.pojo
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#path:
+#  include:
+#    - /api/**
+#  exclude:
+#    - /api/user/login
+#    - /api/user/reg
+#    - /api/user/reg/get/code
+#    - /api/user/info
+#    - /api/select/**
+#    - /api/file/**
+#    - /index.html
+#    - /
