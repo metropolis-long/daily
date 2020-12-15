@@ -77,10 +77,19 @@ spring:
       max-request-size: 30MB
   mail:
     host: ENC(4F3l8/Jt56+6twVSusqBFnjEf3RvoTWb)
-    port: 25
+    port: 465
     default-encoding: utf-8
     username: ENC(gkqEgeTiScsCX7WuqgxBehsQplgpUGZg)
     password: ENC(vl/fa7Ykv8LoO5+5LRftpfEFd67blhKLpt2MpaFA1Dc=)
+    properties:
+      mail:
+        transport:
+          protocol: smtp
+        smtp:
+          auth: true
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+            fallback: false
 mybatis:
   mapper-locations: classpath:mapping/*Mapper.xml
   type-aliases-package: com.daily.pojo
@@ -94,7 +103,7 @@ path:
     - /api/user/login
     - /api/user/reg
     - /api/user/reg/get/code
-    - /api/user/info
+    - /api/user/loginByFace
     - /api/select/**
     - /api/food/**
     - /api/file/**

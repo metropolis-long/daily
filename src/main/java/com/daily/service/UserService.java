@@ -66,4 +66,17 @@ public class UserService {
     public UserInfo find(UserInfo info) {
         return dao.login(info) ;
     }
+
+    public ResultBody loginByFace(Long userId) {
+        UserInfo i = new UserInfo();
+        i.setUserId(userId);
+        UserInfo info = dao.login(i);
+        if (info == null) {
+            return new ResultBody(ResultCodeMsg.LOGIN_PWD_ERR.getCode(), ResultCodeMsg.LOGIN_PWD_ERR.getMsg());
+        }
+        info.setPwd(null);
+        ResultBody resultBody = new ResultBody(ResultCodeMsg.OK.getCode(),ResultCodeMsg.OK.getMsg());
+        resultBody.setData(info);
+        return resultBody;
+    }
 }

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.File;
 import java.util.Map;
+import java.util.Properties;
 
 /**
  * @ClassName MailService
@@ -24,7 +26,7 @@ public class MailService {
 //    private static final Logger logger = LoggerFactory.getLogger(MailServiceImpl.class);
 
     @Autowired
-    private JavaMailSender mailSender;
+    private JavaMailSenderImpl mailSender;
 
     private static final String SENDER = "zhuye217@qq.com";
 
@@ -56,7 +58,6 @@ public class MailService {
      * @param subject 主题
      * @param content 内容
      */
-    
     public void sendMimeMessge(String to, String subject, String content) {
         MimeMessage message = mailSender.createMimeMessage();
         try {
@@ -66,6 +67,13 @@ public class MailService {
             helper.setTo(to);
             helper.setSubject(subject);
             helper.setText(content, true);
+            Properties properties = new Properties();
+            properties.setProperty("mail.smtp.auth", "true");
+            properties.setProperty("mail.transport.protocol", "smtp");
+            properties.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+            properties.setProperty("mail.smtp.socketFactory.fallback", "false");
+            mailSender.setJavaMailProperties(properties);
+
             mailSender.send(message);
         } catch (MessagingException e) {
 //            logger.error("发送MimeMessge时发生异常！", e);

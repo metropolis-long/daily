@@ -4,7 +4,7 @@ import com.daily.pojo.Comment;
 import org.springframework.stereotype.Service;
 
 /**
- * @ClassName FoodService
+ * @ClassName CommentService
  * @Description TODO
  * @Author metropolis-long
  * @Date 2020/11/28 20:21
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class CommentService {
-    public Object save(Comment food) {
+    public Object save(Comment comment) {
         return null;
     }
 

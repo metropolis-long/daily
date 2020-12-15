@@ -44,7 +44,30 @@ public class UserController {
         List list = userService.findAllUser();
         return list;
     }
+    /**
+     * 登录
+     *
+     * @param request
+     * @param response
+     * @param UserId
+     * @return
+     */
+    @RequestMapping(value = {"/loginByFace"}, produces = {"application/json;charset=UTF-8"})
+    public Object loginByFace(HttpServletRequest request, HttpServletResponse response, Long UserId) {
 
+        ResultBody data = userService.loginByFace(UserId);
+        UserInfo info = (UserInfo) data.getData();
+        if (data.getCode() == 200) {
+            String key = UUID.randomUUID().toString();
+            Cookie cookie = new Cookie("JSESSIONID", key);
+//            cookie.setDomain("daily.zhuyelong.cn");
+            cookie.setPath("/");
+            response.addCookie(cookie);
+            cacheService.setLoginUserInfo(key, request, info);
+        }
+        return data;
+
+    }
     /**
      * 登录
      *

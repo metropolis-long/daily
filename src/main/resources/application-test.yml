@@ -75,10 +75,19 @@ spring:
             multi-statement-allow: true
   mail:
     host: ENC(4F3l8/Jt56+6twVSusqBFnjEf3RvoTWb)
-    port: 25
+    port: 465
     default-encoding: utf-8
     username: ENC(gkqEgeTiScsCX7WuqgxBehsQplgpUGZg)
     password: ENC(vl/fa7Ykv8LoO5+5LRftpfEFd67blhKLpt2MpaFA1Dc=)
+    properties:
+      mail:
+        transport:
+          protocol: smtp
+        smtp:
+          auth: true
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+            fallback: false
   http:
     multipart:
       max-file-size: 10Mb

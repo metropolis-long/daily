@@ -82,7 +82,7 @@ public class TestService {
 
         @Test
     public void setMail() {
-        mailService.sendMimeMessge("zhuye217@qq.com", "祝好啊", "我是最帅的男人。不允许反驳！！！并且最最最nice");
+        mailService.sendMimeMessge("1402218209@qq.com", "祝好啊", "我是最帅的男人。不允许反驳！！！并且最最最nice");
     }
 
     //    @Test
