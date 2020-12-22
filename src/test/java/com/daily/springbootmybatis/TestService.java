@@ -7,10 +7,7 @@ import com.daily.dto.LearnDTO;
 import com.daily.msg.ResultBody;
 import com.daily.pojo.Label;
 import com.daily.pojo.UserInfo;
-import com.daily.search.CostSearch;
-import com.daily.search.DailySearch;
-import com.daily.search.LearnSearch;
-import com.daily.search.Page;
+import com.daily.search.*;
 import com.daily.service.*;
 import com.daily.tool.DateUtil;
 import com.daily.tool.RedisUtil;
@@ -47,17 +44,26 @@ public class TestService {
 
 
     @Autowired
+    private TravelNoteService travelNoteService;
+    @Autowired
     private MailService mailService;
     //自动加载加密类
     @Autowired
     StringEncryptor encryptor;
 
+
     @Test
     public void savel() {
 
-        LearnSearch saa = new LearnSearch();
-//        saa.setLearnId(1L);
-        learnService.findMyLearn(saa);
+        TravelSearch search = new TravelSearch();
+        search.setWest(new BigDecimal("21.52398"));
+        search.setSouth(new BigDecimal("97.105031"));
+        search.setNorth(new BigDecimal("128.503957"));
+        search.setEast(new BigDecimal("40.136359"));
+        travelNoteService.findTravelNote(search);
+//        LearnSearch saa = new LearnSearch();
+////        saa.setLearnId(1L);
+//        learnService.findMyLearn(saa);
 //        System.out.println(d.getData().getLabel().toArray().toString());
 //        d.getData().setTag("给对方撒,,4,4,,4，443");
 //        learnService.save(d.getData());

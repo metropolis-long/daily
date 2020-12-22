@@ -45,6 +45,13 @@
         or d.tag like #{keywordsLike}
         )
       </if>
+
+      <if test="west != null and east != null">
+        and d.latitude between #{west} and #{ east}
+      </if>
+      <if test="north != null and south != null">
+        and d.longitude between #{north} and #{ south}
+      </if>
     </where>
   </sql>
 </mapper>
