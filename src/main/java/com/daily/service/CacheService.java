@@ -1,6 +1,7 @@
 package com.daily.service;
 
 import com.daily.dao.auto.CitiesCityMapper;
+import com.daily.dao.auto.CitiesCountyMapper;
 import com.daily.dao.auto.CitiesProvinceMapper;
 import com.daily.dao.my.SpringScheduledTaskDao;
 import com.daily.dto.UserInfoDTO;
@@ -28,6 +29,9 @@ public class CacheService implements ICacheService {
 
     @Resource
     private CitiesCityMapper citiesCityMapper;
+
+    @Resource
+    private CitiesCountyMapper citiesCountyMapper;
     @Resource
     private RedisUtil redisUtil;
     @Resource
@@ -60,7 +64,16 @@ public class CacheService implements ICacheService {
         redisUtil.del(sessionId);
 
     }
-
+    @Override
+    public List<CitiesCounty> county() {
+        List<CitiesCounty> county = (List<CitiesCounty>) redisUtil.get("county");
+        if (NullUtil.listIsNull(county)){
+            CitiesCountyExample e =new CitiesCountyExample();
+            county =citiesCountyMapper.selectByExample(e);
+            redisUtil.set("county",county);
+        }
+        return county;
+    }
     @Override
     public List<CitiesCity> city() {
         List<CitiesCity> cities = (List<CitiesCity>) redisUtil.get("city");
@@ -122,6 +135,21 @@ public class CacheService implements ICacheService {
             redisUtil.hset(cronKey,"tacks",list);
         }
         return list;
+    }
+
+    @Override
+    public List<CitiesCounty> county(Long cityCode) {
+        if (cityCode==null){
+            return  county();
+        }
+        List<CitiesCounty> cities = (List<CitiesCounty>) redisUtil.get("county_"+cityCode);
+        if (NullUtil.listIsNull(cities)){
+            CitiesCountyExample e =new CitiesCountyExample();
+            e.createCriteria().andCityCodeEqualTo(cityCode);
+            cities =citiesCountyMapper.selectByExample(e);
+            redisUtil.set("county_"+cityCode,cities);
+        }
+        return cities;
     }
 
     /**

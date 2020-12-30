@@ -29,6 +29,9 @@ import java.util.function.Consumer;
 public class TestService {
     @Autowired
     private UserService userService;
+    @Autowired
+    private CacheService cacheService;
+
     @Resource
     private RedisUtil redisUtil;
     @Autowired
@@ -55,12 +58,13 @@ public class TestService {
     @Test
     public void savel() {
 
+        cacheService.county();
         TravelSearch search = new TravelSearch();
         search.setWest(new BigDecimal("21.52398"));
         search.setSouth(new BigDecimal("97.105031"));
         search.setNorth(new BigDecimal("128.503957"));
         search.setEast(new BigDecimal("40.136359"));
-        travelNoteService.findTravelNote(search);
+//        travelNoteService.findTravelNote(search);
 //        LearnSearch saa = new LearnSearch();
 ////        saa.setLearnId(1L);
 //        learnService.findMyLearn(saa);

@@ -4,7 +4,7 @@
   <select id="findTravel" parameterType="com.daily.search.LearnSearch"  resultType="com.daily.dto.TravelDTO">
     select * from travel_note as d
     left join label on label.relation_id = d.travel_id and label.relation_table=4
-    left join cities_county c on c.city_code = d.city_code
+    left join cities_city c on c.city_code = d.city_code
     left join cities_province p on p.province_code = d.province_code
     left join daily_files f on f.file_id = d.travel_img
     <include refid="learn_sql"/>

@@ -4,6 +4,7 @@ import com.daily.dto.*;
 import com.daily.msg.ResultBody;
 import com.daily.msg.ResultCodeMsg;
 import com.daily.pojo.CitiesCity;
+import com.daily.pojo.CitiesCounty;
 import com.daily.pojo.UserInfo;
 import com.daily.search.*;
 import com.daily.service.*;
@@ -43,6 +44,11 @@ public class SelectCtrl {
     @Autowired
     private TravelNoteService travelNoteService;
 
+    @RequestMapping(value = {"/county"}, produces = {"application/json;charset=UTF-8"})
+    public Object county(Long cityCode) {
+        List<CitiesCounty> list = cacheService.county(cityCode);
+        return new ResultBody(list);
+    }
     @RequestMapping(value = {"/city"}, produces = {"application/json;charset=UTF-8"})
     public Object city(Long provinceCode) {
         List<CitiesCity> list = cacheService.city(provinceCode);
