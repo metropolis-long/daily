@@ -40,7 +40,22 @@ public class DateUtil {
         date = calendar.getTime();   //这个时间就是日期往后推一天的结果
         return date;
     }
-
+    /**
+     * 获取此时之前之后数周的时间
+     *
+     * @param week 相差天数，负数时间前移
+     * @return
+     */
+    public static Date getDayWeekDay(Date date  ,Integer week) {
+        if (week == null) {
+            return date;
+        }
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(date);
+        calendar.add(calendar.WEEK_OF_MONTH, week);//把日期往后增加一天.整数往后推,负数往前移动
+        date = calendar.getTime();   //这个时间就是日期往后推一天的结果
+        return date;
+    }
     /**
      * 获取此时之前之后数天的时间
      *

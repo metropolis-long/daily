@@ -3,6 +3,15 @@ package com.daily.search;
 public class CostSearch extends SearchDTO {
 
     private Long costId;
+    private String thisYear;
+
+    public String getThisYear() {
+        return thisYear;
+    }
+
+    public void setThisYear(String thisYear) {
+        this.thisYear = thisYear;
+    }
 
     /**
      * 按周，月，年统计消费

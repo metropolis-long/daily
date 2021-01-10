@@ -39,23 +39,30 @@
         </if>
     </sql>
     <select id="sumWeekCost" parameterType="com.daily.search.CostSearch" resultType="com.daily.dto.CostDTO">
-    SELECT
-    sum(c.cost_money) as sumMoney,
-    date_format(created, '%Y-%m-%d') as 'timeStr'
-    from
-    cost c
-    WHERE
-    c.user_id =#{userId}
-    GROUP BY week(c.created)
+        SELECT
+        WEEK(date_add(c.created,interval 6 day),2) as sort,
+            sum( c.cost_money ) AS sumMoney,
+            date_format( created, '%Y-%m-%d' ) AS 'timeStr'
+        FROM
+            cost c
+        WHERE
+        <if test="thisYear !=null">
+            date_format(created, '%Y')= date_format( #{thisYear}, '%Y' )
+        </if>
+        <if test="thisYear == null">
+            date_format(created, '%Y')= date_format( now(), '%Y' )
+        </if>
+   and c.user_id =#{userId}
+    GROUP BY sort
     WITH ROLLUP
   </select>
     <select id="findMyCost" parameterType="com.daily.search.CostSearch" resultMap="BaseResultMap">
         select * from cost as d
-        left join label on label.relation_id = d.cost_id and label.relation_table=2
         <include refid="cost_sql"/>
         <if test="orderCause != null ">
             order by #{orderCause}
         </if>
+        group by d.cost_id
         <if test="page != null">
             limit #{page.begin},#{page.length}
         </if>
@@ -64,6 +71,7 @@
         select count(*) from (
         select * from cost as d
         <include refid="cost_sql"/>
+        group by d.cost_id
         )t
     </select>
     <sql id="cost_sql">

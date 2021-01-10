@@ -58,12 +58,15 @@ public class TestService {
     @Test
     public void savel() {
 
-        cacheService.county();
-        TravelSearch search = new TravelSearch();
-        search.setWest(new BigDecimal("21.52398"));
-        search.setSouth(new BigDecimal("97.105031"));
-        search.setNorth(new BigDecimal("128.503957"));
-        search.setEast(new BigDecimal("40.136359"));
+        CostSearch ss= new CostSearch();
+        ss.setUserId(19L);
+        costService.sumWeekCost(ss);
+//        cacheService.county();
+//        TravelSearch search = new TravelSearch();
+//        search.setWest(new BigDecimal("21.52398"));
+//        search.setSouth(new BigDecimal("97.105031"));
+//        search.setNorth(new BigDecimal("128.503957"));
+//        search.setEast(new BigDecimal("40.136359"));
 //        travelNoteService.findTravelNote(search);
 //        LearnSearch saa = new LearnSearch();
 ////        saa.setLearnId(1L);

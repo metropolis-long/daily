@@ -9,13 +9,29 @@ import java.util.List;
 
 public class CostDTO extends Cost {
 
-    private String  timeStr;
+    private Date  timeStr;
     private String  sumMoney;
-
+    private  Integer sort;
     private List<LabelDTO> labels;
     private List<LabelDTO> label;
     private String avatar;
     private String nickName;
+
+    public Date getTimeStr() {
+        return timeStr;
+    }
+
+    public void setTimeStr(Date timeStr) {
+        this.timeStr = timeStr;
+    }
+
+    public Integer getSort() {
+        return sort;
+    }
+
+    public void setSort(Integer sort) {
+        this.sort = sort;
+    }
 
     public String getAvatar() {
         return avatar;
@@ -93,13 +109,6 @@ public class CostDTO extends Cost {
         this.labels = labels;
     }
 
-    public String getTimeStr() {
-        return timeStr==null?"合计":timeStr;
-    }
-
-    public void setTimeStr(String timeStr) {
-        this.timeStr = timeStr;
-    }
 
     public String getSumMoney() {
         return sumMoney;

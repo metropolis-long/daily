@@ -64,7 +64,7 @@ public class FileCtrl {
             HashMap n = new HashMap();
             n.put("uploaded",true);
             n.put("url",df.getFileUrl());
-            n.put("fileId",df.getFileUrl());
+            n.put("fileId",df.getFileId());
             return n;
         } catch (IOException e) {
             e.printStackTrace();
