@@ -70,8 +70,8 @@ public class CostService {
                     temp.setSumMoney("0");
                     temp.setSort(i);
                     //获取前几周日期
-                    Date newWeek =DateUtil.getDayWeekDay(info.getTimeStr(),i-sort);
-                    temp.setTimeStr(newWeek);
+                    Date newWeek =DateUtil.getDayWeekDay(DateUtil.getDateFromStr(info.getTimeStr(),"yyyy-MM-dd"),i-sort);
+                    temp.setTimeStr(DateUtil.getDateStr2Date(newWeek,"yyyy-MM-dd"));
                     add++;
                     //向前缺的空位指定位置插入对象
                     zlist.add(i-1,temp);

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CostDTO extends Cost {
 
-    private Date  timeStr;
+    private String  timeStr;
     private String  sumMoney;
     private  Integer sort;
     private List<LabelDTO> labels;
@@ -17,11 +17,11 @@ public class CostDTO extends Cost {
     private String avatar;
     private String nickName;
 
-    public Date getTimeStr() {
+    public String getTimeStr() {
         return timeStr;
     }
 
-    public void setTimeStr(Date timeStr) {
+    public void setTimeStr(String timeStr) {
         this.timeStr = timeStr;
     }
 
