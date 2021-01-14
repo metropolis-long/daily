@@ -49,6 +49,19 @@ public class CostCtrl {
         return resultBody;
     }
     /**
+     * 我的消费.
+     * @param request
+     * @param response
+     * @param cid
+     * @return
+     */
+    @RequestMapping(value = {"/getcost"},produces = {"application/json;charset=UTF-8"})
+    public Object getCost(HttpServletRequest request, HttpServletResponse response, Long cid){
+        UserInfo userInfo = cacheService.getUserInfo(request);
+        ResultBody resultBody =  costService.getCost(cid);
+        return resultBody;
+    }
+    /**
      * 我的消费统计.
      * @param request
      * @param response

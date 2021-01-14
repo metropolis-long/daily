@@ -5,6 +5,7 @@ import com.daily.dao.my.CostDao;
 import com.daily.dto.CostDTO;
 import com.daily.msg.ResultBody;
 import com.daily.msg.ResultCodeMsg;
+import com.daily.pojo.Cost;
 import com.daily.search.CostSearch;
 import com.daily.tool.DateUtil;
 import com.daily.tool.NullUtil;
@@ -56,30 +57,30 @@ public class CostService {
         if (NullUtil.listIsNull(zlist)) {
             return zlist;
         }
-        int count = zlist.size();
-        int maxSort = zlist.get(count - 2).getSort();
-        for (int j = 0; j < maxSort; j++) {
-            CostDTO info =  zlist.get(j);
-            int sort = info.getSort();
-            //排序位和下标位不同的，差几个补几个
-            //排序1开始，下标0开始
-            if (sort != j + 1) {
-                int add = 0;
-                for (int i = j + 1; i < sort; i++) {
-                    CostDTO temp = new CostDTO();
-                    temp.setSumMoney("0");
-                    temp.setSort(i);
-                    //获取前几周日期
-                    Date newWeek =DateUtil.getDayWeekDay(DateUtil.getDateFromStr(info.getTimeStr(),"yyyy-MM-dd"),i-sort);
-                    temp.setTimeStr(DateUtil.getDateStr2Date(newWeek,"yyyy-MM-dd"));
-                    add++;
-                    //向前缺的空位指定位置插入对象
-                    zlist.add(i-1,temp);
-                }
-                //补了之后，下标后移几位
-                j = j + add;
-            }
-        }
+//        int count = zlist.size();
+//        int maxSort = zlist.get(count - 2).getSort();
+//        for (int j = 0; j < maxSort; j++) {
+//            CostDTO info =  zlist.get(j);
+//            int sort = info.getSort();
+//            //排序位和下标位不同的，差几个补几个
+//            //排序1开始，下标0开始
+//            if (sort != j + 1) {
+//                int add = 0;
+//                for (int i = j + 1; i < sort; i++) {
+//                    CostDTO temp = new CostDTO();
+//                    temp.setSumMoney("0");
+//                    temp.setSort(i);
+//                    //获取前几周日期
+//                    Date newWeek =DateUtil.getDayWeekDay(DateUtil.getDateFromStr(info.getTimeStr(),"yyyy-MM-dd"),i-sort);
+//                    temp.setTimeStr(DateUtil.getDateStr2Date(newWeek,"yyyy-MM-dd"));
+//                    add++;
+//                    //向前缺的空位指定位置插入对象
+//                    zlist.add(i-1,temp);
+//                }
+//                //补了之后，下标后移几位
+//                j = j + add;
+//            }
+//        }
         return zlist;
     }
 
@@ -147,5 +148,10 @@ public class CostService {
         ResultBody resultBody = new ResultBody();
         resultBody.setData(list);
         return resultBody;
+    }
+
+    public ResultBody getCost(Long cid) {
+        Cost cost = costMapper.selectByPrimaryKey(cid);
+        return new ResultBody(cost);
     }
 }

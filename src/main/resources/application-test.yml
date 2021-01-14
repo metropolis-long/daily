@@ -13,7 +13,7 @@ application:
   #upload file path
   profile: /data/profile/
 
-  domain: http://static.zhuyelong.cn
+  domain: http://static.ai.zhuyelong.cn
 spring:
   profiles: test
   session:
