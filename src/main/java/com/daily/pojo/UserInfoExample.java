@@ -605,6 +605,76 @@ public class UserInfoExample {
             return (Criteria) this;
         }
 
+        public Criteria andDailyPwdIsNull() {
+            addCriterion("daily_pwd is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDailyPwdIsNotNull() {
+            addCriterion("daily_pwd is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDailyPwdEqualTo(String value) {
+            addCriterion("daily_pwd =", value, "dailyPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andDailyPwdNotEqualTo(String value) {
+            addCriterion("daily_pwd <>", value, "dailyPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andDailyPwdGreaterThan(String value) {
+            addCriterion("daily_pwd >", value, "dailyPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andDailyPwdGreaterThanOrEqualTo(String value) {
+            addCriterion("daily_pwd >=", value, "dailyPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andDailyPwdLessThan(String value) {
+            addCriterion("daily_pwd <", value, "dailyPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andDailyPwdLessThanOrEqualTo(String value) {
+            addCriterion("daily_pwd <=", value, "dailyPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andDailyPwdLike(String value) {
+            addCriterion("daily_pwd like", value, "dailyPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andDailyPwdNotLike(String value) {
+            addCriterion("daily_pwd not like", value, "dailyPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andDailyPwdIn(List<String> values) {
+            addCriterion("daily_pwd in", values, "dailyPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andDailyPwdNotIn(List<String> values) {
+            addCriterion("daily_pwd not in", values, "dailyPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andDailyPwdBetween(String value1, String value2) {
+            addCriterion("daily_pwd between", value1, value2, "dailyPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andDailyPwdNotBetween(String value1, String value2) {
+            addCriterion("daily_pwd not between", value1, value2, "dailyPwd");
+            return (Criteria) this;
+        }
+
         public Criteria andPwdIsNull() {
             addCriterion("pwd is null");
             return (Criteria) this;
