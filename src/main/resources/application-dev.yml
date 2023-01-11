@@ -107,5 +107,6 @@ path:
     - /api/select/**
     - /api/food/**
     - /api/file/**
+    - /api/sister
     - /index.html
     - /

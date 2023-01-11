@@ -96,4 +96,16 @@ public class EventCtrl {
         ResultBody resultBody =  eventService.delete(info);
         return resultBody;
     }
+    /**3月🖥到期
+     * 删除事件.
+     * @param request
+     * @param response
+     * @param info
+     * @return
+     */
+    @RequestMapping(value = {"/sister"},produces = {"application/json;charset=UTF-8"})
+    public Object sister(HttpServletRequest request, HttpServletResponse response, EventDTO info){
+        ResultBody resultBody =  eventService.sister(info);
+        return resultBody;
+    }
 }

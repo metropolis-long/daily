@@ -27,11 +27,11 @@ spring:
     port: 6379
   datasource: # 数据源
     type: com.alibaba.druid.pool.DruidDataSource
-    driverClassName: com.mysql.cj.jdbc.Driver
     name: ENC(lPMwHr2e56l7bxGv9tGpyw==)
-    url:  ENC(FiiogfhP+eryN3ImGlrfwFhTjHLWBGzIsOPTX1k+14T/G8pLq2bdY1E4n3teD7G8NI6mG70zTUOVTjmM68RcSAqhAZ3gZbIV3ZEF6mXxAziGn1KgUzfLgyCMr++mlmoB)
-    username: ENC(/n7FAQgxd7Rfc4ZnJWDI1Q==)
-    password: ENC(HvlUIFn4vXcyyHnkjm/YUJrDHHmBuGJX)
+    url:  ENC(sQCey8Bqw5PRRDpU0a6pgO6VcWK5W6I8CaqDGQRJGKPq8wUP8YQZDZvk6SUklHJaxqEQJixMo7IrdIt6Kr7+SfYI5c4QGhwS654SX3Vn5bPc5TFmFqKdVapDg6zKuIvvKNjH4ykZyomLOoJKeDcfqHBxFA8RfoJA)
+    username: ENC(43KfjD2VqwKx6D6mp0yNE4wvYBuegKQ8hbIXmuNGX9E=)
+    password: ENC(22/E0XAjHytVXPAJkxdtzIdZCHfs0ZOsZj82SOe5bAIPAEjxIXBIAe6UuOfTThTaRNgn4LVLDP8=)
+    driver-class-name: com.mysql.jdbc.Driver
     druid:
       # 初始连接数
       initialSize: 5

@@ -24,8 +24,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.function.Consumer;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
 public class TestService {
     @Autowired
     private UserService userService;
@@ -83,13 +83,17 @@ public class TestService {
 
         //对敏感信息进行加密
 //        String url = encryptor.encrypt("jdbc:mysql://127.0.0.1:3306/daily?useUnicode=true&usessl=false&characterEncoding=utf8");
-        String url = encryptor.encrypt("jdbc:mysql://localhost:3306/daily?characterEncoding=utf8&useUnicode=true&useSSL=false&serverTimezone=UTC");
-        String p = encryptor.encrypt("fcbdrmoxjyylgabj");
+        String url = encryptor.encrypt("jdbc:mysql://localhost:7788/daily?characterEncoding=utf8&useUnicode=true&useSSL=false&serverTimezone=UTC");
+        String u = encryptor.encrypt("!QAZSE$(**)b5Szd");
+        String p = encryptor.encrypt("KfjD2VqwKx6D6mp0yNE4wvYBuegKQ8hbIXmuNGX9");
+        String p2 = encryptor.encrypt("fcbdrmoxjyylgabj");
         String name = encryptor.encrypt("metropolis.long@foxmail.com");
         String smtp = encryptor.encrypt("smtp.foxmail.com");
+        String uuu= encryptor.decrypt("76+oVgVkNGgImic4cbitM+JE8K/CML2KNGqx/wbXOUMeC7f8rCIUp+QbUFdk1z5hp8Ab+hrrdYZbclfEla8YJKuQoHyn3pYBem+YVIKAiWflVnp1DS3q2vDcCCdGftI7n1cNgLuKcUXG2dyYfh8J/C9ZXWKgJbtH");
+        System.out.println(uuu);
         System.out.println(url);
         System.out.println(name);
-        System.out.println(p);
+        System.out.println("    "+p);
         System.out.println(smtp);
     }
 

@@ -3,6 +3,7 @@ package com.daily.service;
 import com.daily.dao.auto.CitiesCityMapper;
 import com.daily.dao.auto.CitiesCountyMapper;
 import com.daily.dao.auto.CitiesProvinceMapper;
+import com.daily.dao.auto.DailyFilesMapper;
 import com.daily.dao.my.SpringScheduledTaskDao;
 import com.daily.dto.UserInfoDTO;
 import com.daily.pojo.*;
@@ -24,6 +25,9 @@ import java.util.List;
  */
 @Service(value = "cacheService")
 public class CacheService implements ICacheService {
+
+    @Resource
+    private DailyFilesMapper dailyFilesMapper;
     @Resource
     private CitiesProvinceMapper citiesProvinceMapper;
 
@@ -64,6 +68,20 @@ public class CacheService implements ICacheService {
         redisUtil.del(sessionId);
 
     }
+
+    @Override
+    public List<DailyFiles> imgFiles() {
+        List<DailyFiles> f = (List<DailyFiles>) redisUtil.get("imgFiles");
+        if (NullUtil.listIsNull(f)){
+            DailyFilesExample e =new DailyFilesExample();
+            f =dailyFilesMapper.selectByExample(e);
+            redisUtil.set("imgFiles",f);
+        }
+        return f;
+    }
+
+
+
     @Override
     public List<CitiesCounty> county() {
         List<CitiesCounty> county = (List<CitiesCounty>) redisUtil.get("county");

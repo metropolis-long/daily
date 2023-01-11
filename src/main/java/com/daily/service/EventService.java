@@ -9,6 +9,7 @@ import com.daily.tool.Tools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class EventService extends BaseService {
     @Autowired
     private EventMapper eventMapper;
 
-    @Autowired
+    @Resource
     private MailService mailService;
     @Autowired
     private EventDao eventDao;
@@ -60,9 +61,21 @@ public class EventService extends BaseService {
         EventSearch search =new EventSearch();
         List<EventDTO> tasks = eventDao.eventRemindList(search);
         for (EventDTO e : tasks) {
-            mailService.sendMimeMessge(e.getEmail(),"you have a event remind",e.getEventContext());
+//            指定邮箱发送
+            String email=e.getTipEmail()==null?e.getEmail():e.getTipEmail();
+            mailService.sendMimeMessge(email,"you have a event remind",e.getEventContext());
             e.setRemind(false);
             save(e);
         }
     }
+
+    public ResultBody sister(EventDTO e) {
+        e.setUserId(217L);
+        e.setTipEmail("zhuye217@qq.com");
+        String email=e.getTipEmail()==null?e.getEmail():e.getTipEmail();
+        mailService.sendMimeMessge(email,"you have a event remind",e.getEventContext());
+        e.setRemind(false);
+        return save(e);
+    }
+
 }

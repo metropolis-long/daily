@@ -24,8 +24,8 @@ public class RedisConfig extends CachingConfigurerSupport {
      * @param factory
      * @return
      */
-    @Bean
-    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
+    @Bean(name="redisTemplateCustomize")
+    public RedisTemplate<String, Object> redisTemplateCustomize(RedisConnectionFactory factory) {
 
         RedisTemplate<String, Object> template = new RedisTemplate<>();
         // 配置连接工厂

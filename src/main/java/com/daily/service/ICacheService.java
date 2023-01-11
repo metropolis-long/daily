@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ICacheService {
     UserInfo getUserInfo(HttpServletRequest request);
-
+    List<DailyFiles> imgFiles();
     void setLoginUserInfo(String key, HttpServletRequest request, UserInfo info);
 
     void outLogin(String sessionId);

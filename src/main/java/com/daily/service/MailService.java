@@ -8,6 +8,7 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.File;
@@ -25,7 +26,7 @@ import java.util.Properties;
 public class MailService {
 //    private static final Logger logger = LoggerFactory.getLogger(MailServiceImpl.class);
 
-    @Autowired
+    @Resource
     private JavaMailSenderImpl mailSender;
 
     private static final String SENDER = "zhuye217@qq.com";
